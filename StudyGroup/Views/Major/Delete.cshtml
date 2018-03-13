@@ -1,0 +1,32 @@
+﻿@model StudyGroup.Models.Major
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2><font color="#b7a57a">Delete</font></h2>
+
+<h3><font color="white">Are you sure you want to delete this?</font></h3>
+<div>
+    <h4><font color="#b7a57a">Major</font></h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <font color="white">@Html.DisplayNameFor(model => model.MajorName)</font>
+</dt>
+
+        <dd>
+            <font color="white"> @Html.DisplayFor(model => model.MajorName)</font>
+</dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

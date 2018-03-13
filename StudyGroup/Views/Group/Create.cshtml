@@ -1,0 +1,57 @@
+﻿@model StudyGroup.Models.Group
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2><font color="#b7a57a">Create</font></h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4><font color="#b7a57a">Group</font></h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group"><font color="white">
+    @Html.LabelFor(model => model.GroupName, htmlAttributes: new { @class = "control-label col-md-2" })</font>
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.GroupName, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.GroupName, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+    <div class="form-group"><font color="white">
+    @Html.LabelFor(model => model.GroupLeader, htmlAttributes: new { @class = "control-label col-md-2" })</font>
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.GroupLeader, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.GroupLeader, "", new { @class = "text-danger" })
+    </div>
+</div>
+    <div class="form-group"> 
+        <font color="white">
+    @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })</font>
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.GroupLeader, "", new { @class = "text-danger" })
+    </div>
+</div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<font color="#b7a57a">
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    </font>
+}

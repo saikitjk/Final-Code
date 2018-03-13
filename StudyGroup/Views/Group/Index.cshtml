@@ -1,0 +1,55 @@
+﻿@model IEnumerable<StudyGroup.Models.Group>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2><font color="#b7a57a">Index</font></h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@using (Html.BeginForm())
+{
+    <p>
+        <font color="white">
+            Find by name:</font> @Html.TextBox("SearchString")
+            <input type="submit" value="Search" />
+</p>
+}
+<table class="table">
+    <tr>
+        <th>
+            <font color="white">@Html.ActionLink("Group Name", "Index", new { sortOrder = ViewBag.NameSortParm })</font>
+</th>
+        <th>
+            <font color="white"> @Html.ActionLink("Group Leader", "Index", new { sortOrder = ViewBag.NameSortParm })</font>
+</th>
+        <th>
+            <font color="white">@Html.ActionLink("Created Date", "Index", new { sortOrder = ViewBag.NameSortParm })</font>
+</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <font color="white"> @Html.DisplayFor(modelItem => item.GroupName)<</font>>
+</td>
+            <td>
+                <font color="white"> @Html.DisplayFor(modelItem => item.GroupLeader) </font>
+</td>
+            <td>
+                <font color="white">@Html.DisplayFor(modelItem => item.Date)</font>
+</td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.GroupID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.GroupID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.GroupID })
+            </td>
+        </tr>
+    }
+
+</table>

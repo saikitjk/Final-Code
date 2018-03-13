@@ -1,0 +1,33 @@
+﻿@model StudyGroup.Models.Major
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2><font color="#b7a57a">Details</font></h2>
+
+<div>
+    <h4><font color="#b7a57a">Major</font></h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <font color="white"> @Html.DisplayNameFor(model => model.MajorID)</font>
+</dt>
+
+        <dd>
+            <font color="white"> @Html.DisplayFor(model => model.MajorID)</font>
+        </dd>
+        <dt>
+            <font color="white">@Html.DisplayNameFor(model => model.MajorName)</font>
+</dt>
+
+        <dd>
+            <font color="white"> @Html.DisplayFor(model => model.MajorName)</font>
+</dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MajorID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

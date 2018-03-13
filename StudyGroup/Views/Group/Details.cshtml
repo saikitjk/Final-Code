@@ -1,0 +1,49 @@
+﻿@model StudyGroup.Models.Group
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Group</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <font color="white"> @Html.DisplayNameFor(model => model.GroupName) </font>
+</dt>
+
+        <dd>
+            <font color="white">  @Html.DisplayFor(model => model.GroupName)</font>
+</dd>
+
+        <dt>
+            <font color="white">  @Html.DisplayNameFor(model => model.GroupLeader)</font>
+</dt>
+
+        <dd>
+            <font color="white">  @Html.DisplayFor(model => model.GroupLeader)</font>
+</dd>
+        <dt>
+            <font color="white">  @Html.DisplayNameFor(model => model.Date)</font>
+</dt>
+
+        <dd>
+            <font color="white">  @Html.DisplayFor(model => model.Date)</font>
+</dd>
+        <dt>
+            <font color="white"> Group Status</font>
+</dt>
+        @foreach (var item in Model.GroupStatuses)
+    {
+        <dd>
+            <font color="white">  @Html.DisplayFor(modelItem => item.Status)</font>
+</dd>
+}
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.GroupID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
